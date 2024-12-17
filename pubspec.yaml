@@ -40,7 +40,8 @@ dependencies:
   percent_indicator: ^4.2.4
   syncfusion_flutter_gauges: ^20.4.0
   provider: ^6.0.5
-
+  neon_widgets: ^2.0.0
+  
 dev_dependencies:
   flutter_test:
     sdk: flutter

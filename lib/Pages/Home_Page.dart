@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import '../Supporting_Classes/circle_chart.dart';
 import '../Supporting_Classes/customSecondRowCard.dart';
 import '../Supporting_Classes/dynamicStrokeProgressCircle.dart';
 
@@ -266,6 +267,7 @@ class _HomePageState extends State<HomePage> {
               NeonGlowProgressArc(),
               SizedBox(height: 20,),
               DynamicThicknessNeonGauge(progress: 70, size: 200, glowColorEnd: Colors.pink, glowColorStart: Colors.green,),
+              NeonProgressCircle(progress: 0.5,),
             ],
           ),
         ),
