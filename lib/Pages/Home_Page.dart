@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/provider.dart';
+import '../Supporting_Classes/blackboxAi.dart';
 import '../Supporting_Classes/circle_chart.dart';
 import '../Supporting_Classes/customSecondRowCard.dart';
 import '../Supporting_Classes/dynamicStrokeProgressCircle.dart';
@@ -301,7 +302,8 @@ class _HomePageState extends State<HomePage> {
               ),
               SizedBox(height: 20,),
               NeonProgressCircle(progress: 0.75),
-
+              SizedBox(height: 20,),
+              CircularProgressIndicatorWidget(),
 
             ],
           ),
