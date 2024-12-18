@@ -33,14 +33,16 @@ class NeonGlowProgressArc extends StatelessWidget {
           ),
           // CircularPercentIndicator for progress
           CircularPercentIndicator(
-            radius: 95.0,
-            lineWidth: 6.0,
+            radius: 100.0,
+            lineWidth: 5.0,
             percent: progress,
             animation: true,
             animationDuration: 1200,
-            header: Text(
-              "Custom Percentage Indicator",
-              style: TextStyle(color: Colors.black, fontSize: 18),
+            header: SizedBox(height: 50,
+              child: Text(
+                "Custom Percentage Indicator",
+                style: TextStyle(color: Colors.white, fontSize: 18),
+              ),
             ),
             center: Text(
               "${(progress * 100).toInt()}%",

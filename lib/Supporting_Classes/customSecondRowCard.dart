@@ -54,10 +54,11 @@ class Second_card extends StatelessWidget {
                   minStrokeWidth: 0.0, // Minimum stroke width
                   maxStrokeWidth: 4.0, // Maximum stroke width
                   radius: 27.0, // Radius of the circle
-                 centerTextSize: 12,
+                  centerTextSize: 12,
                   neonStrokeWidth: 4.0, // Custom neon stroke width
                   neonOpacity: 0.6, // Neon opacity
-                  neonBlurRadius: 3.0, // Blur for the glow
+                  neonBlurRadius: 3.0,
+                  CircleMarked: 'res/Circule_check_Icon.svg', // Blur for the glow
                 ),
               ),
             ),

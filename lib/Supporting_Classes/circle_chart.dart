@@ -59,21 +59,28 @@ class NeonProgressCircle extends StatelessWidget {
           // Circular Progress Indicator with white arc
           CircularPercentIndicator(
             radius: 110.0,
-            lineWidth: 5.0, // Customize stroke width
+            lineWidth: 4.0, // Customize stroke width
             percent: progress,
             progressColor: Colors.white, // Progress arc is white
             backgroundColor: Colors.grey.withOpacity(0.2),
             animation: true,
             animateFromLastPercent: true,
             circularStrokeCap: CircularStrokeCap.round,
-            center: Text(
-              '${(progress * 100).toStringAsFixed(0)}%',
+            center: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.end,
+              children: [Text(
+              '${(progress * 100).toStringAsFixed(0)}',
               style: TextStyle(
                 fontSize: 30,
                 fontWeight: FontWeight.bold,
                 color: Colors.white, // Center text is white
               ),
-            ),
+            ),Text('%', style: TextStyle(
+                fontSize: 22,
+                fontWeight: FontWeight.bold,
+                color: Colors.white, // Center text is white
+              ),)],)
           ),
         ],
       ),
@@ -90,13 +97,13 @@ class NeonArcPainter extends CustomPainter {
   void paint(Canvas canvas, Size size) {
     Paint paint = Paint()
       ..style = PaintingStyle.stroke
-      ..strokeWidth = 20.0
+      ..strokeWidth = 10.0
       ..color = Colors.transparent;
 
     // Draw the glowing arc behind the circular progress indicator
     for (double i = 0; i < 3; i++) {
       paint.color = _getNeonColor(progress, i).withOpacity(0.2 + i * 0.2);
-      paint.maskFilter = MaskFilter.blur(BlurStyle.normal, 10.0 + i * 5.0);
+      paint.maskFilter = MaskFilter.blur(BlurStyle.normal, 5.0 + i * 7.0);
       canvas.drawArc(
         Offset(0, 0) & size,
         -1.5708, // Start angle (top)
@@ -115,15 +122,15 @@ class NeonArcPainter extends CustomPainter {
   // Function to get the neon glow color based on progress
   Color _getNeonColor(double progress, double layerIndex) {
     // Change colors based on the layer index
-    if (progress <= 0.3) {
-      // Red to Blue transition
-      return Color.lerp(Color(0xFFFFAA00), Color(0xFF3448FF), progress / 0.3)!;
-    } else if (progress <= 0.6) {
-      // Blue to White transition
-      return Color.lerp(Color(0xFF3448FF), Color(0xFFFFFFFF), (progress - 0.3) / 0.3)!;
+    if (progress <= 0.33) {
+      // Red to White transition
+      return Color.lerp(Color(0xFFFFFFFF), Color(0xFFFFFFFF) , progress / 0.3)!;
+    } else if (progress <= 0.66) {
+      // Blue to Blue transition
+      return Color.lerp(Color(0xFF3448FF), Color(0xFF3448FF), (progress - 0.3) / 0.3)!;
     } else {
-      // White to Green transition
-      return Color.lerp(Color(0xFFFFFFFF), Color(0xFF00FF00), (progress - 0.6) / 0.4)!;
+      // White to Yellow transition
+      return Color.lerp(Color(0xFFFFAA00), Color(0xFFFFAA00), (progress - 0.6) / 0.4)!;
     }
   }
 }

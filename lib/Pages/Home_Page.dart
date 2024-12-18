@@ -1,4 +1,3 @@
-import 'package:badr_application/Supporting_Classes/percent_indicator_chart.dart';
 import 'package:badr_application/Supporting_Classes/syncfusion_flutter_gauges.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -45,6 +44,24 @@ class _HomePageState extends State<HomePage> {
       }
     });
   }
+
+
+  double _progress = 0.0; // Initial progress value
+
+  // Function to increment progress
+  void _incrementProgress() {
+    setState(() {
+      _progress = (_progress + 0.01).clamp(0.0, 1.0); // Increment progress and clamp to [0.0, 1.0]
+    });
+  }
+
+  // Function to increment progress
+  void _decrementProgress() {
+    setState(() {
+      _progress = (_progress - 0.1).clamp(0.0, 0.0); // Increment progress and clamp to [0.0, 1.0]
+    });
+  }
+
 
   @override
   Widget build(BuildContext context) {
@@ -174,13 +191,14 @@ class _HomePageState extends State<HomePage> {
                           RepaintBoundary(
                             child: DynamicStrokeProgressCircle(
                               progress: progress,
-                              minStrokeWidth: 1.0,
-                              maxStrokeWidth: 7.0,
+                              minStrokeWidth: 0.0,
+                              maxStrokeWidth: 8.0,
                               radius: 80.0,
                               centerTextSize: 28.0,
                               neonStrokeWidth: 9.0,
                               neonOpacity: 0.7,
-                              neonBlurRadius: 6.0,
+                              neonBlurRadius: 7.0,
+                              CircleMarked: 'res/Circule_check_Icon.png',
                             ),
                           ),
                           SizedBox(height: 30.0),
@@ -263,11 +281,28 @@ class _HomePageState extends State<HomePage> {
               // Sixth-sub Progress Card
               Second_card(svgAsset: "res/DuhaFrame.svg", title: "DUAH", progress: 0.0),
 
-
-              NeonGlowProgressArc(),
+              //NeonGlowProgressArc(),
               SizedBox(height: 20,),
               DynamicThicknessNeonGauge(progress: 70, size: 200, glowColorEnd: Colors.pink, glowColorStart: Colors.green,),
-              NeonProgressCircle(progress: 0.5,),
+
+              // Neon Progress Circle with dynamic progress
+              NeonProgressCircle(progress: _progress,),
+
+              SizedBox(height: 20),
+
+              // Button to increment progress
+              ElevatedButton(
+                onPressed: _incrementProgress,
+                child: Text('Increase Progress'),
+              ),
+              ElevatedButton(
+                onPressed: _decrementProgress,
+                child: Text('Decrease Progress'),
+              ),
+              SizedBox(height: 20,),
+              NeonProgressCircle(progress: 0.75),
+
+
             ],
           ),
         ),
@@ -298,3 +333,5 @@ class ProgressProvider with ChangeNotifier {
     notifyListeners();
   }
 }
+
+

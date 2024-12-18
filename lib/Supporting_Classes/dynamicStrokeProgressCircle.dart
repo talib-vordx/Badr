@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'dart:math';
 
+import 'package:flutter_svg/svg.dart';
+
 class DynamicStrokeProgressCircle extends StatelessWidget {
   final double progress; // Value between 0.0 and 1.0
   final double minStrokeWidth; // Minimum stroke width
@@ -12,8 +14,9 @@ class DynamicStrokeProgressCircle extends StatelessWidget {
   final double neonStrokeWidth; // Dynamic neon stroke width
   final double neonOpacity; // Opacity of neon glow
   final double neonBlurRadius; // Blur mask radius for glow
+  final String CircleMarked;
 
-  DynamicStrokeProgressCircle({
+   DynamicStrokeProgressCircle({
     required this.progress,
     this.minStrokeWidth = 1.0,
     this.maxStrokeWidth = 6.0,
@@ -21,7 +24,8 @@ class DynamicStrokeProgressCircle extends StatelessWidget {
     this.centerTextSize = 24.0, // Default text size
     this.neonStrokeWidth = 6.0, // Default neon stroke width
     this.neonOpacity = 0.8, // Default opacity of the neon glow
-    this.neonBlurRadius = 10.0, // Default blur for the glow
+    this.neonBlurRadius = 10.0,
+    required this.CircleMarked, // Default blur for the glow
   });
 
   @override
@@ -50,13 +54,15 @@ class DynamicStrokeProgressCircle extends StatelessWidget {
               0, // Centered horizontally
               -radius, // Position icon at the top of the circle
             ),
-            child: Container(
+            child:
+            Container(
                 color: Color(0xFF233144),
                 height: 30,
                 width: 30,
-                child: Image.asset('res/Circule_check_Icon.png')),
+                child: Image.asset(CircleMarked)
+            ),
             // SvgPicture.asset(
-            //   'res/Circule_check_Icon.svg',
+            //   CircleMarked,
             //   width: 24.0, // Adjust size to fit your circle design
             //   height: 24.0,
             //   fit: BoxFit.contain, // Ensures the SVG fits within its bounds
