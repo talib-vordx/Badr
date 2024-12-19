@@ -58,7 +58,6 @@ class Second_card extends StatelessWidget {
                   neonStrokeWidth: 4.0, // Custom neon stroke width
                   neonOpacity: 0.6, // Neon opacity
                   neonBlurRadius: 3.0,
-                  CircleMarked: 'res/Circule_check_Icon.svg', // Blur for the glow
                 ),
               ),
             ),

@@ -41,7 +41,6 @@ dependencies:
   syncfusion_flutter_gauges: ^20.4.0
   provider: ^6.0.5
   neon_widgets: ^2.0.0
-  
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -82,6 +81,7 @@ flutter:
     - res/DuhaFrame.svg
     - res/Circule_check_Icon.svg
     - res/Circule_check_Icon.png
+    - res/checkfram.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

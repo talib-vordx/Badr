@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'dart:math';
 
 import 'package:flutter_svg/svg.dart';
-
 class DynamicStrokeProgressCircle extends StatelessWidget {
   final double progress; // Value between 0.0 and 1.0
   final double minStrokeWidth; // Minimum stroke width
@@ -14,9 +13,8 @@ class DynamicStrokeProgressCircle extends StatelessWidget {
   final double neonStrokeWidth; // Dynamic neon stroke width
   final double neonOpacity; // Opacity of neon glow
   final double neonBlurRadius; // Blur mask radius for glow
-  final String CircleMarked;
 
-   DynamicStrokeProgressCircle({
+    DynamicStrokeProgressCircle({super.key,
     required this.progress,
     this.minStrokeWidth = 1.0,
     this.maxStrokeWidth = 6.0,
@@ -25,7 +23,6 @@ class DynamicStrokeProgressCircle extends StatelessWidget {
     this.neonStrokeWidth = 6.0, // Default neon stroke width
     this.neonOpacity = 0.8, // Default opacity of the neon glow
     this.neonBlurRadius = 10.0,
-    required this.CircleMarked, // Default blur for the glow
   });
 
   @override
@@ -57,14 +54,12 @@ class DynamicStrokeProgressCircle extends StatelessWidget {
             child:
             Container(
                 color: Color(0xFF233144),
-                height: 30,
-                width: 30,
-                child: Image.asset(CircleMarked)
+                child: Image.asset('res/Circule_check_Icon.png',fit: BoxFit.contain,),
             ),
             // SvgPicture.asset(
-            //   CircleMarked,
-            //   width: 24.0, // Adjust size to fit your circle design
-            //   height: 24.0,
+            //   'res/Circule_check_Icon.svg',
+            //   width: 30.0, // Adjust size to fit your circle design
+            //   height: 30.0,
             //   fit: BoxFit.contain, // Ensures the SVG fits within its bounds
             //   colorFilter: null, // Ensure no color overlay unless needed
             //   alignment: Alignment.center,
@@ -167,11 +162,11 @@ class ProgressCirclePainter extends CustomPainter {
       // Select the neon glow color based on progress with adjusted opacity
       Color neonColor;
       if (progress <= 0.34) {
-        neonColor = Color(0x80FFFFFF).withOpacity(neonOpacity); // Semi-transparent white neon glow for 0-33%
+        neonColor = Color(0x80FFFFFF).withValues(alpha: neonOpacity); // Semi-transparent white neon glow for 0-33%
       } else if (progress <= 0.66) {
-        neonColor = Color(0x803448FF).withOpacity(neonOpacity); // Semi-transparent blue neon glow for 34-66%
+        neonColor = Color(0x803448FF).withValues(alpha: neonOpacity); // Semi-transparent blue neon glow for 34-66%
       } else {
-        neonColor = Color(0xFFC48D33).withOpacity(neonOpacity); // Semi-transparent orange neon glow for 67-100%
+        neonColor = Color(0xFFC48D33).withValues(alpha: neonOpacity); // Semi-transparent orange neon glow for 67-100%
       }
 
       neonGlowPaint.color = neonColor;

@@ -59,7 +59,7 @@ class NeonProgressCircle extends StatelessWidget {
           // Circular Progress Indicator with white arc
           CircularPercentIndicator(
             radius: 110.0,
-            lineWidth: 4.0, // Customize stroke width
+            lineWidth: 8.0, // Customize stroke width
             percent: progress,
             progressColor: Colors.white, // Progress arc is white
             backgroundColor: Colors.grey.withOpacity(0.2),

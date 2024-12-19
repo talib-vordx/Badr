@@ -191,15 +191,15 @@ class _HomePageState extends State<HomePage> {
                           SizedBox(height: 20.0),
                           RepaintBoundary(
                             child: DynamicStrokeProgressCircle(
-                              progress: progress,
-                              minStrokeWidth: 0.0,
-                              maxStrokeWidth: 8.0,
-                              radius: 80.0,
-                              centerTextSize: 28.0,
-                              neonStrokeWidth: 9.0,
-                              neonOpacity: 0.7,
-                              neonBlurRadius: 7.0,
-                              CircleMarked: 'res/Circule_check_Icon.png',
+                              radius: 100.0,
+                              minStrokeWidth: 2.0,
+                              maxStrokeWidth: 5.0,
+                              neonStrokeWidth: 8.0,
+                              neonOpacity: 0.5,
+                              neonBlurRadius: 10.0,
+                              //centerTextSize: 28.0,
+                              progress:progress,
+
                             ),
                           ),
                           SizedBox(height: 30.0),
@@ -261,8 +261,8 @@ class _HomePageState extends State<HomePage> {
                   );
                 },
               ),
+
               SizedBox(height: 10.h),
-              //
 
               // First-sub Progress Card
               Second_card(svgAsset: 'res/drop.svg', title: 'PRAYER OF WADU', progress: 0.0,),
@@ -304,7 +304,6 @@ class _HomePageState extends State<HomePage> {
               NeonProgressCircle(progress: 0.75),
               SizedBox(height: 20,),
               CircularProgressIndicatorWidget(),
-
             ],
           ),
         ),
